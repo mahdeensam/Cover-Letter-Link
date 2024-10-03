@@ -1,0 +1,162 @@
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles with parallax background */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-attachment: fixed;
+}
+
+/* Add a semi-transparent layer over the background for readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity if needed */
+    z-index: -1; /* Keep it behind content */
+}
+
+/* Letter Container */
+.letter-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    padding: 40px 50px;
+    line-height: 1.6; /* Slightly tighter line height */
+    margin: 30px 0;
+    border-left: 5px solid #006400; /* Dark green */
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 1;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 30px; /* Slightly smaller font size */
+    font-weight: 700;
+    color: #006400; /* Dark green */
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+header p {
+    font-size: 14px; /* Slightly smaller font size */
+    color: #555;
+    margin-bottom: 5px;
+}
+
+header a {
+    color: #006400; /* Dark green */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+header a:hover {
+    color: #004d00; /* Darker green on hover */
+    text-decoration: underline;
+}
+
+/* Letter content styles */
+.letter-content {
+    text-align: left;
+    font-size: 16px; /* Slightly smaller font size */
+    color: #444;
+}
+
+.letter-content p {
+    margin-bottom: 20px;
+}
+
+.letter-content p:first-of-type {
+    font-weight: bold;
+    color: #006400; /* Dark green */
+    margin-top: 10px;
+}
+
+.letter-content p:last-child {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #006400; /* Dark green */
+}
+
+/* Add signature image after the last paragraph, aligned to the left */
+.letter-content p:last-child::after {
+    content: url('resized_signature.png'); /* Path to the resized signature image */
+    display: block;
+    margin-top: 10px;
+    width: 150px; /* Adjust the width as per your requirement */
+    position: relative;
+    left: 0; /* Align it to the left */
+    transform: translateY(10px); /* Adjust vertical positioning */
+}
+
+
+
+/* Hover animation for the container */
+.letter-container:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtle animations for links */
+header a:hover,
+.letter-content a:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+/* Media Query for mobile responsiveness */
+@media (max-width: 768px) {
+    .letter-container {
+        padding: 25px 30px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header p, 
+    .letter-content p {
+        font-size: 14px;
+    }
+}
+
+/* Media Query for very small devices */
+@media (max-width: 480px) {
+    .letter-container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .letter-content p {
+        font-size: 14px;
+    }
+}
